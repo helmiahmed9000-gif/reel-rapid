@@ -961,10 +961,7 @@ Test one variable at a time:
 ## Setting Up Tracking
 
 ### UTM Parameters
-Track video traffic in Google Analytics:
-```
-            ? utm_source = youtube & utm_medium=video& utm_campaign=product_launch
-```
+Track video traffic in Google Analytics using UTM parameters like: utm_source=youtube, utm_medium=video, utm_campaign=product_launch
 
 ### Conversion Pixels
 Install tracking for:
@@ -1040,7 +1037,7 @@ Analytics turn guesswork into strategy. Measure what matters, test relentlessly,
 
 **Want expert analysis of your video performance?** Our team provides comprehensive analytics audits. [Get yours](/contact).
     `,
-  },
+    },
 };
 
 // Generate static params
