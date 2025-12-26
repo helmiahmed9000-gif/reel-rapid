@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
@@ -89,6 +90,11 @@ const blogPosts = [
 
 const categories = ['All', 'Video Marketing', 'E-commerce', 'Trends', 'Video Tips', 'SEO', 'Equipment', 'Storytelling', 'Analytics'];
 
+export const metadata: Metadata = {
+    title: 'Blog',
+    description: 'Read the latest insights, tips, and trends in video marketing, SEO, and content creation from the experts at Reel Rapid Agency.',
+};
+
 export default function BlogPage() {
     const featuredPosts = blogPosts.filter(post => post.featured);
     const regularPosts = blogPosts.filter(post => !post.featured);
@@ -117,8 +123,8 @@ export default function BlogPage() {
                             <button
                                 key={category}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === 'All'
-                                        ? 'bg-primary text-white'
-                                        : 'bg-secondary text-foreground hover:bg-primary/10 hover:text-primary'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-secondary text-foreground hover:bg-primary/10 hover:text-primary'
                                     }`}
                             >
                                 {category}

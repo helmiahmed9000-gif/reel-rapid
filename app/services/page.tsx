@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -108,6 +109,11 @@ const benefits = [
     'Commercial usage rights',
     'Raw footage included',
 ];
+
+export const metadata: Metadata = {
+    title: 'Our Services',
+    description: 'Explore our premium video marketing services including viral short videos, product videos, explainer videos, and video ads.',
+};
 
 export default function ServicesPage() {
     return (

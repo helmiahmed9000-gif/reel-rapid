@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import { Target, Users, Lightbulb, Award, Heart, TrendingUp } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: 'About Us',
+    description: 'Learn more about Reel Rapid Agency, our mission, values, and the creative team dedicated to growing your brand through video marketing.',
+};
 
 export default function AboutPage() {
     const values = [

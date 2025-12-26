@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -405,6 +406,22 @@ export async function generateStaticParams() {
     return Object.keys(servicesData).map((slug) => ({
         slug,
     }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const service = servicesData[slug];
+
+    if (!service) {
+        return {
+            title: 'Service Not Found',
+        };
+    }
+
+    return {
+        title: service.title,
+        description: service.description,
+    };
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {

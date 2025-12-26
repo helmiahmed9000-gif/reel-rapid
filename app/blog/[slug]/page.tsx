@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -1045,6 +1046,22 @@ export async function generateStaticParams() {
     return Object.keys(blogPostsData).map((slug) => ({
         slug,
     }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const post = blogPostsData[slug];
+
+    if (!post) {
+        return {
+            title: 'Post Not Found',
+        };
+    }
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+    };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
