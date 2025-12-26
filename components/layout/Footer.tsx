@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Container } from './Container';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Logo } from '@/components/ui/Logo';
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -38,10 +39,7 @@ export function Footer() {
                     {/* Company Info */}
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">RR</span>
-                            </div>
-                            <span className="text-xl font-bold text-foreground">Reel Rapid</span>
+                            <Logo />
                         </div>
                         <p className="text-muted-foreground text-sm leading-relaxed">
                             Transforming brands through the power of video marketing.

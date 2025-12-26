@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Container } from './Container';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Logo } from '@/components/ui/Logo';
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -39,13 +40,9 @@ export function Header() {
             <Container>
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2 group">
-                        <div className="w-10 h-10 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                            <span className="text-white font-bold text-xl">RR</span>
-                        </div>
-                        <span className="text-xl font-bold text-foreground">
-                            Reel Rapid
-                        </span>
+
+                    <Link href="/" className="group">
+                        <Logo className="transform group-hover:scale-105 transition-transform" />
                     </Link>
 
                     {/* Desktop Navigation */}
