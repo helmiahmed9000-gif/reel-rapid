@@ -51,13 +51,13 @@ export function Header() {
                     <nav className="hidden md:flex items-center space-x-8">
                         <Link
                             href="/"
-                            className="text-white/80 hover:text-primary transition-colors font-medium"
+                            className="text-white hover:text-primary transition-colors font-medium"
                         >
                             Home
                         </Link>
                         <Link
                             href="/about"
-                            className="text-white/80 hover:text-primary transition-colors font-medium"
+                            className="text-white hover:text-primary transition-colors font-medium"
                         >
                             About
                         </Link>
@@ -65,7 +65,7 @@ export function Header() {
                         {/* Services Dropdown */}
                         <div className="relative group">
                             <button
-                                className="flex items-center space-x-1 text-white/80 hover:text-primary transition-colors font-medium"
+                                className="flex items-center space-x-1 text-white hover:text-primary transition-colors font-medium"
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
                             >
@@ -95,13 +95,13 @@ export function Header() {
 
                         <Link
                             href="/blog"
-                            className="text-white/80 hover:text-primary transition-colors font-medium"
+                            className="text-white hover:text-primary transition-colors font-medium"
                         >
                             Blog
                         </Link>
                         <Link
                             href="/contact"
-                            className="text-white/80 hover:text-primary transition-colors font-medium"
+                            className="text-white hover:text-primary transition-colors font-medium"
                         >
                             Contact
                         </Link>
