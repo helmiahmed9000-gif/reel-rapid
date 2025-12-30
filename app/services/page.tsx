@@ -11,7 +11,9 @@ import {
     Heart,
     Video,
     ArrowRight,
-    CheckCircle2
+    CheckCircle2,
+    Smartphone,
+    Image
 } from 'lucide-react';
 
 const services = [
@@ -98,6 +100,34 @@ const services = [
         ],
         gradient: 'from-primary to-orange-600',
         price: 'Starting at $899',
+    },
+    {
+        icon: Smartphone,
+        title: 'UGC Videos',
+        slug: 'ugc-videos',
+        description: 'Authentic user-generated content that builds trust, drives higher conversion rates, and resonates with your audience.',
+        features: [
+            'Creator sourcing & vetting',
+            'Brief & script development',
+            'Product shipping coordination',
+            'Authentic unboxing & reviews',
+        ],
+        gradient: 'from-pink-500 to-rose-500',
+        price: 'Starting at $599',
+    },
+    {
+        icon: Image,
+        title: 'Video Thumbnails',
+        slug: 'video-thumbnails',
+        description: 'High-converting video thumbnails designed to stop the scroll, increase click-through rates, and drive more views.',
+        features: [
+            'Custom concept design',
+            'Photo manipulation',
+            'Text layout & typography',
+            'A/B testing variations',
+        ],
+        gradient: 'from-violet-500 to-purple-600',
+        price: 'Starting at $45',
     },
 ];
 

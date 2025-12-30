@@ -45,7 +45,7 @@ export function HeroSection() {
                                     className="border-2 border-primary text-primary hover:bg-orange-50 text-lg px-8 py-6 group"
                                 >
                                     <Play className="mr-2 w-5 h-5" />
-                                    View Our Work
+                                    View Our Services
                                 </Button>
                             </Link>
                         </div>

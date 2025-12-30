@@ -28,13 +28,15 @@ export function Header() {
         { name: 'Tutorial Videos', href: '/services/tutorial-videos' },
         { name: 'Storytelling Videos', href: '/services/storytelling-videos' },
         { name: 'Video Ads', href: '/services/video-ads' },
+        { name: 'UGC Videos', href: '/services/ugc-videos' },
+        { name: 'Video Thumbnails', href: '/services/video-thumbnails' },
     ];
 
     return (
         <header
             className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-                ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-sm'
-                : 'bg-background'
+                ? 'bg-black/95 backdrop-blur-lg border-b border-white/10 shadow-lg'
+                : 'bg-black'
                 }`}
         >
             <Container>
@@ -49,13 +51,13 @@ export function Header() {
                     <nav className="hidden md:flex items-center space-x-8">
                         <Link
                             href="/"
-                            className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                            className="text-white/80 hover:text-primary transition-colors font-medium"
                         >
                             Home
                         </Link>
                         <Link
                             href="/about"
-                            className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                            className="text-white/80 hover:text-primary transition-colors font-medium"
                         >
                             About
                         </Link>
@@ -63,7 +65,7 @@ export function Header() {
                         {/* Services Dropdown */}
                         <div className="relative group">
                             <button
-                                className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-colors font-medium"
+                                className="flex items-center space-x-1 text-white/80 hover:text-primary transition-colors font-medium"
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
                             >
@@ -73,7 +75,7 @@ export function Header() {
 
                             {/* Dropdown Menu */}
                             <div
-                                className={`absolute top-full left-0 mt-2 w-64 bg-popover border border-border rounded-2xl shadow-lg overflow-hidden transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                                className={`absolute top-full left-0 mt-2 w-64 bg-black/95 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl overflow-hidden transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                                     }`}
                                 onMouseEnter={() => setIsServicesOpen(true)}
                                 onMouseLeave={() => setIsServicesOpen(false)}
@@ -82,7 +84,7 @@ export function Header() {
                                     <Link
                                         key={service.href}
                                         href={service.href}
-                                        className={`block px-4 py-3 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${index !== services.length - 1 ? 'border-b border-border/50' : ''
+                                        className={`block px-4 py-3 text-sm text-white/80 hover:bg-primary/20 hover:text-white transition-colors ${index !== services.length - 1 ? 'border-b border-white/10' : ''
                                             }`}
                                     >
                                         {service.name}
@@ -93,13 +95,13 @@ export function Header() {
 
                         <Link
                             href="/blog"
-                            className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                            className="text-white/80 hover:text-primary transition-colors font-medium"
                         >
                             Blog
                         </Link>
                         <Link
                             href="/contact"
-                            className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                            className="text-white/80 hover:text-primary transition-colors font-medium"
                         >
                             Contact
                         </Link>
@@ -116,7 +118,7 @@ export function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+                        className="md:hidden p-2 text-white hover:text-primary transition-colors"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -126,18 +128,18 @@ export function Header() {
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden py-4 border-t border-border">
+                    <div className="md:hidden py-4 border-t border-white/10">
                         <nav className="flex flex-col space-y-4">
                             <Link
                                 href="/"
-                                className="text-foreground hover:text-primary transition-colors font-medium"
+                                className="text-white hover:text-primary transition-colors font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Home
                             </Link>
                             <Link
                                 href="/about"
-                                className="text-foreground hover:text-primary transition-colors font-medium"
+                                className="text-white hover:text-primary transition-colors font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 About
@@ -145,12 +147,12 @@ export function Header() {
 
                             {/* Services - Mobile */}
                             <div className="space-y-2">
-                                <p className="text-sm font-semibold text-muted-foreground">Services</p>
+                                <p className="text-sm font-semibold text-white/60">Services</p>
                                 {services.map((service) => (
                                     <Link
                                         key={service.href}
                                         href={service.href}
-                                        className="block pl-4 text-foreground/80 hover:text-primary transition-colors"
+                                        className="block pl-4 text-white/80 hover:text-primary transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {service.name}
@@ -160,14 +162,14 @@ export function Header() {
 
                             <Link
                                 href="/blog"
-                                className="text-foreground hover:text-primary transition-colors font-medium"
+                                className="text-white hover:text-primary transition-colors font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Blog
                             </Link>
                             <Link
                                 href="/contact"
-                                className="text-foreground hover:text-primary transition-colors font-medium"
+                                className="text-white hover:text-primary transition-colors font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Contact

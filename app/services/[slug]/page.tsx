@@ -399,6 +399,243 @@ const servicesData: Record<string, any> = {
             { question: 'How many variations should I test?', answer: 'We recommend at least 3-5 variations testing different hooks, offers, and CTAs to find your winner.' },
         ],
     },
+
+    'ugc-videos': {
+        title: 'UGC Videos',
+        subtitle: 'Authentic User-Generated Content That Converts',
+        description: 'Leverage the power of authenticity with user-generated content that builds trust, engages audiences, and drives higher conversion rates for your brand.',
+        hero: 'Turn customers into advocates with authentic UGC video campaigns.',
+        whatsIncluded: [
+            'Creator sourcing & vetting',
+            'Brief & script development',
+            'Product shipping coordination',
+            'Authentic unboxing & reviews',
+            'Lifestyle usage shots',
+            'Raw footage delivery',
+            'Usage rights included',
+            'Performance variations',
+        ],
+        benefits: [
+            {
+                title: 'High Credibility',
+                description: 'Consumers trust UGC 2.4x more than brand-created content.',
+            },
+            {
+                title: 'Better Ad Performance',
+                description: 'UGC ads typically see a 4x higher click-through rate.',
+            },
+            {
+                title: 'Cost-Effective',
+                description: 'Lower production costs than traditional high-gloss ads.',
+            },
+            {
+                title: 'Scalable Content',
+                description: 'Easily generate a high volume of diverse content.',
+            },
+        ],
+        process: [
+            {
+                step: 1,
+                title: 'Strategy & Briefing',
+                description: 'We define your goals and create creative briefs for creators.',
+            },
+            {
+                step: 2,
+                title: 'Creator Matching',
+                description: 'We match your brand with the perfect content creators.',
+            },
+            {
+                step: 3,
+                title: 'Content Creation',
+                description: 'Creators film authentic content based on our strategic briefs.',
+            },
+            {
+                step: 4,
+                title: 'Quality Assessment',
+                description: 'We review, edit (optional), and deliver high-performing assets.',
+            },
+        ],
+        pricing: [
+            {
+                name: 'Starter',
+                price: '$599',
+                period: '/campaign',
+                features: [
+                    '3 UGC videos',
+                    '3 different creators',
+                    'Brief creation',
+                    'Raw footage included',
+                    'Standard usage rights',
+                    '7-10 day turnaround',
+                ],
+            },
+            {
+                name: 'Growth',
+                price: '$1,499',
+                period: '/campaign',
+                features: [
+                    '8 UGC videos',
+                    '5 different creators',
+                    'Strategic scripting',
+                    'Edited versions for ads',
+                    'Raw footage included',
+                    'Standard usage rights',
+                    '10-14 day turnaround',
+                ],
+                popular: true,
+            },
+            {
+                name: 'Scale',
+                price: '$2,999',
+                period: '/campaign',
+                features: [
+                    '20 UGC videos',
+                    '10 different creators',
+                    'Full campaign strategy',
+                    'Professional editing',
+                    'Whitelisting available',
+                    'Perpetual usage rights',
+                    '14-21 day turnaround',
+                    'Dedicated manager',
+                ],
+            },
+        ],
+        faqs: [
+            {
+                question: 'Do I get to choose the creators?',
+                answer: 'Yes! We present you with a shortlist of creators that match your brand aesthetic and target audience for you to approve.',
+            },
+            {
+                question: 'Do I need to send physical products?',
+                answer: 'If your video requires a physical product, yes. We handle the logistics of shipping products to the chosen creators.',
+            },
+            {
+                question: 'Are usage rights included?',
+                answer: 'Yes, our standard packages include digital usage rights for paid ads and organic social media.',
+            },
+            {
+                question: 'Can you edit the UGC videos?',
+                answer: 'Absolutely. We offer packages that include professional editing to add hooks, captions, and music to maximize performance.',
+            },
+        ],
+    },
+
+    'video-thumbnails': {
+        title: 'Video Thumbnails',
+        subtitle: 'Click-Worthy Designs That Stop the Scroll',
+        description: 'Increase your click-through rates with professional, high-impact video thumbnails designed to grab attention and drive views on YouTube and social media.',
+        hero: 'Get more views without making more videos. It starts with the click.',
+        whatsIncluded: [
+            'Custom concept design',
+            'Photo manipulation',
+            'Text layout & typography',
+            'Color correction & grading',
+            'Expressions enhancement',
+            'Background removal/replacement',
+            'A/B testing variations',
+            'Source files (PSD)',
+        ],
+        benefits: [
+            {
+                title: 'Higher CTR',
+                description: 'Good thumbnails can increase Click-Through Rate by 15-50%.',
+            },
+            {
+                title: 'More Views',
+                description: 'The algorithm promotes videos that people actually click on.',
+            },
+            {
+                title: 'Brand Consistency',
+                description: 'Develop a recognizable visual style for your channel.',
+            },
+            {
+                title: 'Professional Look',
+                description: 'Stand out from competitors with polished, high-end designs.',
+            },
+        ],
+        process: [
+            {
+                step: 1,
+                title: 'Video Analysis',
+                description: 'We review your video topic and target audience.',
+            },
+            {
+                step: 2,
+                title: 'Concept & Sketches',
+                description: 'We brainstorm 2-3 concepts that trigger curiosity.',
+            },
+            {
+                step: 3,
+                title: 'Design',
+                description: 'Our designers bring the concept to life with high-end assets.',
+            },
+            {
+                step: 4,
+                title: 'Review & Refine',
+                description: 'You provide feedback, we tweak, and deliver the final files.',
+            },
+        ],
+        pricing: [
+            {
+                name: 'Single',
+                price: '$45',
+                period: '/thumbnail',
+                features: [
+                    '1 custom thumbnail',
+                    '2 revision rounds',
+                    'JPEG & PNG files',
+                    '24-hour delivery',
+                    'Satisfaction guarantee',
+                ],
+            },
+            {
+                name: 'Pack of 10',
+                price: '$350',
+                period: '/pack',
+                features: [
+                    '10 custom thumbnails',
+                    'Concept strategy',
+                    'Unlimited revisions',
+                    'Source files (PSD)',
+                    'Priority support',
+                    'Consistent branding',
+                ],
+                popular: true,
+            },
+            {
+                name: 'Monthly',
+                price: '$899',
+                period: '/month',
+                features: [
+                    'Up to 30 thumbnails',
+                    'A/B test variations',
+                    'Thumbnail strategy audit',
+                    'Dedicated designer',
+                    'Slack communication',
+                    'Same-day turnaround',
+                    'Unlimited design assets',
+                ],
+            },
+        ],
+        faqs: [
+            {
+                question: 'What makes a good thumbnail?',
+                answer: 'A good thumbnail creates curiosity, uses high-contrast colors, features expressive faces, and has minimal but punchy text.',
+            },
+            {
+                question: 'Do I need to provide photos?',
+                answer: 'Ideally, yes. High-quality photos of yourself or the subject work best. However, we can also use stock imagery or screengrabs from your video.',
+            },
+            {
+                question: 'Can you update my old thumbnails?',
+                answer: 'Yes! Revamping usage thumbnails on your best-performing videos is a great way to revitalize traffic.',
+            },
+            {
+                question: 'What is the turnaround time?',
+                answer: 'For single orders, we typically deliver within 24 hours. Bulk orders are delivered according to your posting schedule.',
+            },
+        ],
+    },
 };
 
 // Generate static params for all service pages

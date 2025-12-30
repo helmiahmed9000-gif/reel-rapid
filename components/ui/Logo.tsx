@@ -22,7 +22,7 @@ export function Logo({
         */}
 
             {/* IMAGE LOGO OPTION */}
-            <div className="relative w-28 h-28">
+            <div className="relative w-40 h-40">
                 <Image
                     src="/images/logo.png"
                     alt="Reel Rapid Agency"

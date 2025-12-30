@@ -124,8 +124,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                                        <a href="mailto:hello@reelrapid.com" className="text-muted-foreground hover:text-primary transition-colors">
-                                            hello@reelrapid.com
+                                        <a href="mailto:contact@reelrapidagency.com" className="text-muted-foreground hover:text-primary transition-colors">
+                                            contact@reelrapidagency.com
                                         </a>
                                     </div>
                                 </Card>
@@ -136,8 +136,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                                        <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                                            +1 (234) 567-890
+                                        <a href="tel:+212655048286" className="text-muted-foreground hover:text-primary transition-colors">
+                                            +212 655-048286
                                         </a>
                                     </div>
                                 </Card>
@@ -149,8 +149,7 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="font-semibold text-foreground mb-1">Office</h3>
                                         <p className="text-muted-foreground">
-                                            123 Creative Street<br />
-                                            New York, NY 10001
+                                            Agadir, Morocco
                                         </p>
                                     </div>
                                 </Card>
@@ -227,7 +226,7 @@ export default function ContactPage() {
                                                     type="tel"
                                                     value={formData.phone}
                                                     onChange={(e) => handleChange('phone', e.target.value)}
-                                                    placeholder="+1 (234) 567-890"
+                                                    placeholder="+212 655-048286"
                                                 />
                                             </div>
                                         </div>

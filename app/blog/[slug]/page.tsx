@@ -5,6 +5,12 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, Tag, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
+import Markdown from 'react-markdown';
+import rehypeSlug from 'rehype-slug';
+import GithubSlugger from 'github-slugger';
+import { TableOfContents } from '@/components/blog/TableOfContents';
+import { AuthorBio } from '@/components/blog/AuthorBio';
+
 
 // Demo blog posts data (same as blog page for consistency)
 const blogPostsData: Record<string, any> = {
@@ -15,6 +21,12 @@ const blogPostsData: Record<string, any> = {
         date: '2024-12-20',
         readTime: '8 min read',
         author: 'Alex Rivera',
+        authorRole: 'Senior Video Strategist',
+        authorBio: 'Alex has over 10 years of experience in digital marketing and video production. He has helped brands like Nike and Adidas scale their social media presence through viral content strategies.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            linkedin: 'https://linkedin.com',
+        },
         content: `
 # Introduction
 
@@ -135,6 +147,12 @@ Start implementing these strategies today, and you'll see your engagement rates 
         date: '2024-12-18',
         readTime: '12 min read',
         author: 'Sam Taylor',
+        authorRole: 'E-commerce Content Director',
+        authorBio: 'Sam specializes in high-converting product videos for DTC brands. With a background in commercial direction, he knows exactly how to showcase products to drive sales.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            website: 'https://example.com',
+        },
         content: `
 # Why Product Videos Are Essential in 2024
 
@@ -279,6 +297,11 @@ Product videos are no longer optional—they're a competitive necessity. By foll
         date: '2024-12-15',
         readTime: '10 min read',
         author: 'Jordan Lee',
+        authorRole: 'Trend Analyst & Creator',
+        authorBio: 'Jordan stays ahead of the curve on all things video marketing. From AI tools to platform updates, she breaks down complex trends into actionable strategies.',
+        authorSocials: {
+            linkedin: 'https://linkedin.com',
+        },
         content: `
 # The Future of Video Marketing is Here
 
@@ -381,6 +404,13 @@ The brands that win in 2024 will be those that adapt quickly to these trends whi
         date: '2024-12-12',
         readTime: '6 min read',
         author: 'Casey Morgan',
+        authorRole: 'Creative Director',
+        authorBio: 'Casey is an award-winning filmmaker turned marketer. He teaches the art of storytelling and how to capture attention in the noisy digital landscape.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            linkedin: 'https://linkedin.com',
+            website: 'https://caseymorgan.com',
+        },
         content: `
 # The 3-Second Rule
 
@@ -461,6 +491,12 @@ Master the hook, master the algorithm. Every second counts, but the first three 
         date: '2024-12-10',
         readTime: '9 min read',
         author: 'Alex Rivera',
+        authorRole: 'Senior Video Strategist',
+        authorBio: 'Alex has over 10 years of experience in digital marketing and video production. He has helped brands like Nike and Adidas scale their social media presence through viral content strategies.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            linkedin: 'https://linkedin.com',
+        },
         content: `
 # Video SEO: The Complete Guide
 
@@ -558,6 +594,12 @@ Video SEO isn't optional anymore—it's essential for discovery and growth.
         date: '2024-12-08',
         readTime: '7 min read',
         author: 'Sam Taylor',
+        authorRole: 'E-commerce Content Director',
+        authorBio: 'Sam specializes in high-converting product videos for DTC brands. With a background in commercial direction, he knows exactly how to showcase products to drive sales.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            website: 'https://example.com',
+        },
         content: `
 # Professional Videos Don't Require Professional Budgets
 
@@ -676,6 +718,11 @@ Great content beats expensive equipment every time. Start with what you have, le
         date: '2024-12-05',
         readTime: '11 min read',
         author: 'Jordan Lee',
+        authorRole: 'Trend Analyst & Creator',
+        authorBio: 'Jordan stays ahead of the curve on all things video marketing. From AI tools to platform updates, she breaks down complex trends into actionable strategies.',
+        authorSocials: {
+            linkedin: 'https://linkedin.com',
+        },
         content: `
 # Why Stories Sell (And Facts Don't)
 
@@ -832,6 +879,13 @@ Master storytelling, and you'll never struggle for attention again. Facts fade, 
         date: '2024-12-01',
         readTime: '10 min read',
         author: 'Casey Morgan',
+        authorRole: 'Creative Director',
+        authorBio: 'Casey is an award-winning filmmaker turned marketer. He teaches the art of storytelling and how to capture attention in the noisy digital landscape.',
+        authorSocials: {
+            twitter: 'https://twitter.com',
+            linkedin: 'https://linkedin.com',
+            website: 'https://caseymorgan.com',
+        },
         content: `
 # Data-Driven Video Strategy
 
@@ -1081,6 +1135,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ...postData,
         }));
 
+
+
+    // Extract headings for TOC
+    const slugger = new GithubSlugger();
+    const headings = post.content
+        .split('\n')
+        .filter((line: string) => line.match(/^#{2,3}\s/))
+        .map((line: string) => {
+            const match = line.match(/^(#{2,3})\s+(.+)$/);
+            if (!match) return null;
+            return {
+                level: match[1].length,
+                text: match[2],
+                slug: slugger.slug(match[2]),
+            };
+        })
+        .filter(Boolean) as { level: number; text: string; slug: string }[];
+
     return (
         <>
             {/* Hero Section */}
@@ -1166,15 +1238,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Article Content */}
             <section className="w-full py-12 bg-background">
                 <Container>
-                    <div className="max-w-4xl mx-auto">
-                        <div className="prose prose-lg max-w-none">
-                            <div
-                                className="text-foreground leading-relaxed space-y-6"
-                                dangerouslySetInnerHTML={{ __html: post.content.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br/>') }}
-                                style={{
-                                    whiteSpace: 'pre-wrap',
-                                }}
-                            />
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                            {/* Table of Contents - Desktop */}
+                            <div className="hidden lg:block lg:col-span-3">
+                                <TableOfContents headings={headings} />
+                            </div>
+
+                            {/* Main Content */}
+                            <div className="lg:col-span-9">
+                                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-li:text-muted-foreground">
+                                    <Markdown rehypePlugins={[rehypeSlug]}>
+                                        {post.content}
+                                    </Markdown>
+
+                                    <AuthorBio
+                                        name={post.author}
+                                        role={post.authorRole}
+                                        bio={post.authorBio}
+                                        socials={post.authorSocials}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </Container>
