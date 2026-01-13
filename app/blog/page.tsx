@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Read the latest insights, tips, and trends in video marketing, SEO, and content creation from the experts at Reel Rapid Agency.',
 };
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 0; // Always fetch fresh content
 
 export default async function BlogPage() {
     const posts = await getBlogPosts();

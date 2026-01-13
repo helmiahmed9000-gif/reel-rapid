@@ -12,7 +12,7 @@ import { TableOfContents } from '@/components/blog/TableOfContents';
 import { AuthorBio } from '@/components/blog/AuthorBio';
 import { getBlogPostByPath, getBlogPosts, getBlogPostUrl } from '@/lib/contentful';
 
-export const revalidate = 3600;
+export const revalidate = 0; // Always fetch fresh content
 
 // Generate static params for both single and nested slugs
 export async function generateStaticParams() {
