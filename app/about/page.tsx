@@ -36,33 +36,27 @@ export default function AboutPage() {
         { value: '500+', label: 'Videos Produced' },
         { value: '200+', label: 'Happy Clients' },
         { value: '50M+', label: 'Total Views' },
-        { value: '8', label: 'Years Experience' },
+        { value: '2', label: 'Years Experience' },
     ];
 
     const team = [
         {
-            name: 'Alex Rivera',
-            role: 'Founder & Creative Director',
-            avatar: 'AR',
-            bio: '15 years in video production with a passion for storytelling.',
+            name: 'Ayoub Ouarain',
+            role: 'Content Manager',
+            avatar: 'AO',
+            bio: 'Expert in content strategy and video marketing with a passion for storytelling.',
         },
         {
-            name: 'Sam Taylor',
-            role: 'Head of Strategy',
-            avatar: 'ST',
-            bio: 'Data-driven marketing expert with 10+ years experience.',
+            name: 'Abdellah Saadouni',
+            role: 'Creative Lead',
+            avatar: 'AS',
+            bio: 'Visionary creative director bringing bold ideas to life through stunning visuals.',
         },
         {
-            name: 'Jordan Lee',
-            role: 'Senior Video Editor',
-            avatar: 'JL',
-            bio: 'Award-winning editor specializing in viral content.',
-        },
-        {
-            name: 'Casey Morgan',
-            role: 'Motion Graphics Lead',
-            avatar: 'CM',
-            bio: 'Creative animator bringing ideas to life through motion.',
+            name: 'Houcine Sabir',
+            role: 'Project Manager',
+            avatar: 'HS',
+            bio: 'Experienced project manager ensuring seamless delivery and client satisfaction.',
         },
     ];
 
@@ -91,7 +85,7 @@ export default function AboutPage() {
                             <h2 className="text-4xl font-bold text-foreground">Our Story</h2>
                             <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                                 <p>
-                                    Founded in 2016, Reel Rapid Agency started with a simple mission:
+                                    Founded in 2024, Reel Rapid Agency started with a simple mission:
                                     make video marketing accessible and effective for businesses of all sizes.
                                 </p>
                                 <p>
@@ -191,7 +185,7 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         {team.map((member) => (
                             <Card key={member.name} className="p-6 text-center hover:shadow-xl transition-all hover:-translate-y-2">
                                 <div className="w-24 h-24 bg-gradient-to-br from-primary to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">

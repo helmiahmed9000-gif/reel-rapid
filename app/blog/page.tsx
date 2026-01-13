@@ -3,103 +3,56 @@ import { Container } from '@/components/layout/Container';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
-
-// Demo blog posts data
-const blogPosts = [
-    {
-        slug: 'viral-video-secrets-2024',
-        title: '10 Secrets to Creating Viral Videos in 2024',
-        excerpt: 'Discover the proven strategies top creators use to make videos go viral on TikTok, Instagram Reels, and YouTube Shorts.',
-        category: 'Video Guides',
-        date: '2024-12-20',
-        readTime: '8 min read',
-        image: '/images/blog/viral-secrets.jpg',
-        featured: true,
-    },
-    {
-        slug: 'product-video-conversion-guide',
-        title: 'The Ultimate Guide to Product Videos That Convert',
-        excerpt: 'Learn how to create product videos that increase conversions by 80% and reduce returns significantly.',
-        category: 'Product Reviews',
-        date: '2024-12-18',
-        readTime: '12 min read',
-        image: '/images/blog/product-videos.jpg',
-        featured: true,
-    },
-    {
-        slug: 'video-marketing-trends',
-        title: '2024 Video Marketing Trends You Can\'t Ignore',
-        excerpt: 'Stay ahead of the curve with these emerging video marketing trends that will dominate in 2024 and beyond.',
-        category: 'Case Studies',
-        date: '2024-12-15',
-        readTime: '10 min read',
-        image: '/images/blog/trends.jpg',
-        featured: false,
-    },
-    {
-        slug: 'hook-first-3-seconds',
-        title: 'How to Hook Viewers in the First 3 Seconds',
-        excerpt: 'The science behind creating irresistible video hooks that stop the scroll and capture attention instantly.',
-        category: 'Video Guides',
-        date: '2024-12-12',
-        readTime: '6 min read',
-        image: '/images/blog/hooks.jpg',
-        featured: false,
-    },
-    {
-        slug: 'video-seo-optimization',
-        title: 'Video SEO: Optimize Your Videos for Search',
-        excerpt: 'Master video SEO to rank higher on YouTube, Google, and social media platforms for maximum visibility.',
-        category: 'Video Guides',
-        date: '2024-12-10',
-        readTime: '9 min read',
-        image: '/images/blog/seo.jpg',
-        featured: false,
-    },
-    {
-        slug: 'budget-video-equipment',
-        title: 'Creating Professional Videos on a Budget',
-        excerpt: 'You don\'t need expensive gear to create stunning videos. Here\'s what you actually need to get started.',
-        category: 'Product Reviews',
-        date: '2024-12-08',
-        readTime: '7 min read',
-        image: '/images/blog/budget.jpg',
-        featured: false,
-    },
-    {
-        slug: 'storytelling-techniques',
-        title: 'Master the Art of Video Storytelling',
-        excerpt: 'Learn the narrative techniques that make videos unforgettable and build emotional connections with viewers.',
-        category: 'Storytelling Guides',
-        date: '2024-12-05',
-        readTime: '11 min read',
-        image: '/images/blog/storytelling.jpg',
-        featured: false,
-    },
-    {
-        slug: 'video-analytics-guide',
-        title: 'Understanding Video Analytics: A Complete Guide',
-        excerpt: 'Decode video metrics and analytics to understand what\'s working and optimize your content strategy.',
-        category: 'Case Studies',
-        date: '2024-12-01',
-        readTime: '10 min read',
-        image: '/images/blog/analytics.jpg',
-        featured: false,
-    },
-];
-
-const categories = ['All', 'Video Guides', 'Storytelling Guides', 'Product Reviews', 'Case Studies'];
+import { getBlogPosts, getBlogPostUrl } from '@/lib/contentful';
 
 export const metadata: Metadata = {
     title: 'Blog',
     description: 'Read the latest insights, tips, and trends in video marketing, SEO, and content creation from the experts at Reel Rapid Agency.',
 };
 
-export default function BlogPage() {
+export const revalidate = 3600; // Revalidate every hour
+
+export default async function BlogPage() {
+    const posts = await getBlogPosts();
+
+    // Transform Contentful data to match UI expectations
+    const blogPosts = posts.map(post => {
+        const fields = post.fields;
+        const category = fields.category && typeof fields.category === 'object' && 'fields' in fields.category ? (fields.category.fields as any).name : 'Uncategorized';
+
+        let imageUrl = null;
+        if (fields.coverImage && typeof fields.coverImage === 'object' && 'fields' in fields.coverImage) {
+            const asset = fields.coverImage as any;
+            if (asset.fields.file && asset.fields.file.url) {
+                imageUrl = `https:${asset.fields.file.url}`;
+            }
+        }
+
+        // Get the proper URL (handles parent/child nesting)
+        const url = getBlogPostUrl(post);
+
+        return {
+            slug: fields.slug,
+            url: url,
+            title: fields.title,
+            excerpt: fields.excerpt,
+            category: category,
+            date: fields.date,
+            readTime: fields.readTime || '5 min read',
+            image: imageUrl,
+            featured: fields.featured || false,
+        };
+    });
+
     const featuredPosts = blogPosts.filter(post => post.featured);
     const regularPosts = blogPosts.filter(post => !post.featured);
 
+    // Get unique categories from posts
+    const uniqueCategories = Array.from(new Set(blogPosts.map(post => post.category)));
+    const categories = ['All', ...uniqueCategories];
+
     return (
+
         <>
             {/* Hero Section */}
             <section className="w-full bg-gradient-to-br from-orange-50 via-white to-orange-100/30 pt-32 pb-20">
@@ -141,13 +94,17 @@ export default function BlogPage() {
                         <h2 className="text-3xl font-bold text-foreground mb-8">Featured Articles</h2>
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             {featuredPosts.map((post) => (
-                                <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+                                <Link key={post.slug} href={post.url} className="group">
                                     <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
                                         {/* Image Placeholder */}
                                         <div className="aspect-video bg-gradient-to-br from-primary/20 to-orange-200 relative overflow-hidden">
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="text-6xl opacity-20">📹</div>
-                                            </div>
+                                            {post.image ? (
+                                                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="text-6xl opacity-20">📹</div>
+                                                </div>
+                                            )}
                                             <div className="absolute top-4 left-4">
                                                 <span className="px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
                                                     Featured
@@ -191,47 +148,57 @@ export default function BlogPage() {
             <section className="w-full py-20 bg-gradient-to-b from-white to-orange-50/30">
                 <Container>
                     <h2 className="text-3xl font-bold text-foreground mb-8">Latest Articles</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {regularPosts.map((post) => (
-                            <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
-                                    {/* Image Placeholder */}
-                                    <div className="aspect-video bg-gradient-to-br from-orange-100 to-orange-50 relative overflow-hidden">
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="text-5xl opacity-20">🎬</div>
+                    {regularPosts.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {regularPosts.map((post) => (
+                                <Link key={post.slug} href={post.url} className="group">
+                                    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full hover:-translate-y-1">
+                                        {/* Image Placeholder */}
+                                        <div className="aspect-video bg-gradient-to-br from-orange-100 to-orange-50 relative overflow-hidden">
+                                            {post.image ? (
+                                                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                                            ) : (
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="text-5xl opacity-20">🎬</div>
+                                                </div>
+                                            )}
                                         </div>
-                                    </div>
-                                    <div className="p-6">
-                                        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                                            <span className="flex items-center gap-1">
-                                                <Tag className="w-3 h-3" />
-                                                {post.category}
-                                            </span>
-                                            <span>•</span>
-                                            <span className="flex items-center gap-1">
-                                                <Clock className="w-3 h-3" />
-                                                {post.readTime}
-                                            </span>
+                                        <div className="p-6">
+                                            <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                                                <span className="flex items-center gap-1">
+                                                    <Tag className="w-3 h-3" />
+                                                    {post.category}
+                                                </span>
+                                                <span>•</span>
+                                                <span className="flex items-center gap-1">
+                                                    <Clock className="w-3 h-3" />
+                                                    {post.readTime}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                                                {post.excerpt}
+                                            </p>
+                                            <div className="flex items-center justify-between text-xs">
+                                                <span className="text-muted-foreground">
+                                                    {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                                                </span>
+                                                <span className="text-primary font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center">
+                                                    Read →
+                                                </span>
+                                            </div>
                                         </div>
-                                        <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                                            {post.excerpt}
-                                        </p>
-                                        <div className="flex items-center justify-between text-xs">
-                                            <span className="text-muted-foreground">
-                                                {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                                            </span>
-                                            <span className="text-primary font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center">
-                                                Read →
-                                            </span>
-                                        </div>
-                                    </div>
-                                </Card>
-                            </Link>
-                        ))}
-                    </div>
+                                    </Card>
+                                </Link>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-20">
+                            <p className="text-xl text-muted-foreground">No recent articles found. Check back soon!</p>
+                        </div>
+                    )}
                 </Container>
             </section>
 
@@ -261,3 +228,4 @@ export default function BlogPage() {
         </>
     );
 }
+
