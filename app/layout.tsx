@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     template: '%s - Reel Rapid',
     default: 'Video Marketing Agency - Reel Rapid',
   },
-  description: "Transform your brand with premium video marketing services. We create viral short videos, product videos, explainer videos, and more.",
-  keywords: ["video marketing", "video production", "viral videos", "product videos", "video ads", "video agency"],
+  description: "Transform your brand with premium video marketing services. We create viral short videos, commercial video, explainer videos, and more.",
+  keywords: ["video marketing", "video production", "viral videos", "commercial video", "video ads", "video agency"],
   authors: [{ name: "Reel Rapid Agency" }],
   openGraph: {
     title: "Reel Rapid Agency - Video Marketing Experts",

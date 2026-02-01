@@ -23,7 +23,7 @@ export function Header() {
 
     const services = [
         { name: 'Viral Short Videos', href: '/services/viral-short-videos' },
-        { name: 'Product Videos', href: '/services/product-videos' },
+        { name: 'Commercial Video', href: '/services/commercial-video' },
         { name: 'Explainer Videos', href: '/services/explainer-videos' },
         { name: 'Tutorial Videos', href: '/services/tutorial-videos' },
         { name: 'Storytelling Videos', href: '/services/storytelling-videos' },

@@ -29,12 +29,12 @@ const services = [
             'Viral editing techniques',
         ],
         gradient: 'from-orange-400 to-orange-600',
-        price: 'Starting at $499',
+        price: 'Starting at $299',
     },
     {
         icon: Package,
-        title: 'Product Videos',
-        slug: 'product-videos',
+        title: 'Commercial Video',
+        slug: 'commercial-video',
         description: 'Showcase your products with stunning visuals that highlight features, benefits, and drive conversions on your sales pages.',
         features: [
             'Professional product cinematography',
@@ -43,7 +43,7 @@ const services = [
             'E-commerce optimization',
         ],
         gradient: 'from-orange-500 to-red-500',
-        price: 'Starting at $799',
+        price: 'Starting at $299',
     },
     {
         icon: FileText,
@@ -57,7 +57,7 @@ const services = [
             'Clear call-to-action',
         ],
         gradient: 'from-primary to-orange-500',
-        price: 'Starting at $1,299',
+        price: 'Starting at $299',
     },
     {
         icon: GraduationCap,
@@ -71,7 +71,7 @@ const services = [
             'Knowledge base integration',
         ],
         gradient: 'from-orange-600 to-orange-700',
-        price: 'Starting at $599',
+        price: 'Starting at $299',
     },
     {
         icon: Heart,
@@ -85,7 +85,7 @@ const services = [
             'Authentic testimonials',
         ],
         gradient: 'from-orange-400 to-pink-500',
-        price: 'Starting at $1,499',
+        price: 'Starting at $299',
     },
     {
         icon: Video,
@@ -99,7 +99,7 @@ const services = [
             'Performance analytics',
         ],
         gradient: 'from-primary to-orange-600',
-        price: 'Starting at $899',
+        price: 'Starting at $299',
     },
     {
         icon: Smartphone,
@@ -113,7 +113,7 @@ const services = [
             'Authentic unboxing & reviews',
         ],
         gradient: 'from-pink-500 to-rose-500',
-        price: 'Starting at $599',
+        price: 'Starting at $299',
     },
     {
         icon: Image,
@@ -127,7 +127,7 @@ const services = [
             'A/B testing variations',
         ],
         gradient: 'from-violet-500 to-purple-600',
-        price: 'Starting at $45',
+        price: 'Starting at $299',
     },
 ];
 
@@ -142,7 +142,7 @@ const benefits = [
 
 export const metadata: Metadata = {
     title: 'Our Services',
-    description: 'Explore our premium video marketing services including viral short videos, product videos, explainer videos, and video ads.',
+    description: 'Explore our premium video marketing services including viral short videos, commercial video, explainer videos, and video ads.',
 };
 
 export default function ServicesPage() {

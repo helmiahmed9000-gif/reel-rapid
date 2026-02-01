@@ -78,10 +78,10 @@ const servicesData: Record<string, any> = {
         pricing: [
             {
                 name: 'Starter',
-                price: '$499',
-                period: '/package',
+                price: '$299',
+                period: '/video',
                 features: [
-                    '3 viral short videos',
+                    '1 viral short video',
                     'Platform optimization',
                     'Trending audio integration',
                     '2 revision rounds',
@@ -90,10 +90,10 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Growth',
-                price: '$899',
+                price: '$599',
                 period: '/package',
                 features: [
-                    '5 viral short videos',
+                    '3 viral short videos',
                     'Platform optimization',
                     'Trending audio & effects',
                     'Custom hooks development',
@@ -105,10 +105,10 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Enterprise',
-                price: '$1,499',
+                price: '$999',
                 period: '/package',
                 features: [
-                    '10 viral short videos',
+                    '5 viral short videos',
                     'Multi-platform strategy',
                     'Trend monitoring & execution',
                     'Custom hooks & concepts',
@@ -140,11 +140,11 @@ const servicesData: Record<string, any> = {
         ],
     },
 
-    'product-videos': {
-        title: 'Product Videos',
+    'commercial-video': {
+        title: 'Commercial Video',
         subtitle: 'Showcase Your Products in Stunning Detail',
-        description: 'Transform your product pages with professional product videos that highlight features, demonstrate benefits, and drive conversions. Perfect for e-commerce, crowdfunding, and product launches.',
-        hero: 'Increase conversions by up to 80% with professional product videos.',
+        description: 'Transform your product pages with professional commercial video that highlight features, demonstrate benefits, and drive conversions. Perfect for e-commerce, crowdfunding, and product launches.',
+        hero: 'Increase conversions by up to 80% with professional commercial video.',
 
         whatsIncluded: [
             'Professional cinematography',
@@ -202,7 +202,7 @@ const servicesData: Record<string, any> = {
         pricing: [
             {
                 name: 'Essential',
-                price: '$799',
+                price: '$299',
                 period: '/product',
                 features: [
                     '1 product video (30-60s)',
@@ -215,7 +215,7 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Professional',
-                price: '$1,299',
+                price: '$599',
                 period: '/product',
                 features: [
                     '1 product video (60-90s)',
@@ -231,7 +231,7 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Premium',
-                price: '$2,499',
+                price: '$999',
                 period: '/product',
                 features: [
                     'Multiple video variations',
@@ -295,9 +295,9 @@ const servicesData: Record<string, any> = {
             { step: 4, title: 'Animation', description: 'Bring your story to life with custom animations.' },
         ],
         pricing: [
-            { name: 'Basic', price: '$1,299', period: '/video', features: ['60-90 second video', 'Script included', 'Professional voiceover', 'Basic animation', '2 revision rounds', '10-14 day delivery'] },
-            { name: 'Professional', price: '$2,199', period: '/video', features: ['90-120 second video', 'Script included', 'Professional voiceover', 'Advanced animation', 'Custom illustrations', 'Unlimited revisions', '7-10 day delivery', 'Subtitles included'], popular: true },
-            { name: 'Premium', price: '$3,999', period: '/video', features: ['120-180 second video', 'Premium script development', 'Premium voiceover talent', 'Advanced 3D animation', 'Custom character design', 'Unlimited revisions', '5-7 day delivery', 'Multiple language versions'] },
+            { name: 'Basic', price: '$299', period: '/video', features: ['60-90 second video', 'Script included', 'Professional voiceover', 'Basic animation', '2 revision rounds', '10-14 day delivery'] },
+            { name: 'Professional', price: '$599', period: '/video', features: ['90-120 second video', 'Script included', 'Professional voiceover', 'Advanced animation', 'Custom illustrations', 'Unlimited revisions', '7-10 day delivery', 'Subtitles included'], popular: true },
+            { name: 'Premium', price: '$999', period: '/video', features: ['120-180 second video', 'Premium script development', 'Premium voiceover talent', 'Advanced 3D animation', 'Custom character design', 'Unlimited revisions', '5-7 day delivery', 'Multiple language versions'] },
         ],
         faqs: [
             { question: 'Do you write the script?', answer: 'Yes! Script development is included in all packages. We work with you to create a compelling narrative.' },
@@ -326,9 +326,9 @@ const servicesData: Record<string, any> = {
             { step: 4, title: 'Voiceover', description: 'Professional narration and final polish.' },
         ],
         pricing: [
-            { name: 'Single Tutorial', price: '$599', period: '/video', features: ['Up to 10 minutes', 'Screen recording', 'Basic annotations', 'Voiceover', '2 revisions', '5-7 day delivery'] },
-            { name: 'Tutorial Series', price: '$1,799', period: '/series', features: ['3-5 tutorial videos', 'Up to 30 minutes total', 'Advanced annotations', 'Professional voiceover', 'Unlimited revisions', '7-10 day delivery', 'Chapter markers'], popular: true },
-            { name: 'Complete Course', price: '$3,999', period: '/course', features: ['10+ tutorial videos', 'Up to 90 minutes total', 'Custom graphics package', 'Professional studio', 'Multi-language captions', 'Unlimited revisions', '14-21 day delivery', 'LMS integration'] },
+            { name: 'Single Tutorial', price: '$299', period: '/video', features: ['Up to 10 minutes', 'Screen recording', 'Basic annotations', 'Voiceover', '2 revisions', '5-7 day delivery'] },
+            { name: 'Tutorial Series', price: '$699', period: '/series', features: ['3 tutorial videos', 'Up to 30 minutes total', 'Advanced annotations', 'Professional voiceover', 'Unlimited revisions', '7-10 day delivery', 'Chapter markers'], popular: true },
+            { name: 'Complete Course', price: '$1,499', period: '/course', features: ['5 tutorial videos', 'Up to 90 minutes total', 'Custom graphics package', 'Professional studio', 'Multi-language captions', 'Unlimited revisions', '14-21 day delivery', 'LMS integration'] },
         ],
         faqs: [
             { question: 'What software do you record?', answer: 'We can create tutorials for any software, web application, mobile app, or physical process.' },
@@ -357,9 +357,9 @@ const servicesData: Record<string, any> = {
             { step: 4, title: 'Post-Production', description: 'Editing, color, sound, and final delivery.' },
         ],
         pricing: [
-            { name: 'Brand Story', price: '$1,499', period: '/video', features: ['60-90 second video', 'Single location shoot', 'Basic cinematography', 'Licensed music', '2 revisions', '10-14 day delivery'] },
-            { name: 'Customer Story', price: '$2,499', period: '/video', features: ['2-3 minute video', 'Interview filming', 'B-roll footage', 'Professional cinematography', 'Color grading', 'Unlimited revisions', '7-10 day delivery', 'Testimonial integration'], popular: true },
-            { name: 'Documentary Style', price: '$4,999', period: '/video', features: ['5-10 minute video', 'Multiple locations', 'Multiple interviews', 'Cinematic production', 'Advanced color & sound', 'Unlimited revisions', '14-21 day delivery', 'Director involvement'] },
+            { name: 'Brand Story', price: '$299', period: '/video', features: ['60-90 second video', 'Single location shoot', 'Basic cinematography', 'Licensed music', '2 revisions', '10-14 day delivery'] },
+            { name: 'Customer Story', price: '$599', period: '/video', features: ['2-3 minute video', 'Interview filming', 'B-roll footage', 'Professional cinematography', 'Color grading', 'Unlimited revisions', '7-10 day delivery', 'Testimonial integration'], popular: true },
+            { name: 'Documentary Style', price: '$999', period: '/video', features: ['5-10 minute video', 'Multiple locations', 'Multiple interviews', 'Cinematic production', 'Advanced color & sound', 'Unlimited revisions', '14-21 day delivery', 'Director involvement'] },
         ],
         faqs: [
             { question: 'What makes a good brand story?', answer: 'Authenticity, emotion, and a clear message. We help you identify what makes your brand unique and craft a narrative around it.' },
@@ -388,9 +388,9 @@ const servicesData: Record<string, any> = {
             { step: 4, title: 'Optimization', description: 'Format for each platform and deliver.' },
         ],
         pricing: [
-            { name: 'Single Ad', price: '$899', period: '/ad', features: ['1 video ad (15-30s)', 'Platform optimization', '2 A/B variations', 'Basic analytics setup', '2 revisions', '5-7 day delivery'] },
-            { name: 'Ad Campaign', price: '$2,499', period: '/campaign', features: ['3-5 video ads', 'Multi-platform formats', '5 A/B variations', 'Advanced analytics', 'Unlimited revisions', '7-10 day delivery', 'Performance optimization'], popular: true },
-            { name: 'Enterprise', price: '$5,999', period: '/campaign', features: ['10+ video ads', 'Full funnel strategy', 'Unlimited variations', 'Advanced analytics & reporting', 'Unlimited revisions', '10-14 day delivery', 'Dedicated media buyer', 'Monthly optimization'] },
+            { name: 'Single Ad', price: '$299', period: '/ad', features: ['1 video ad (15-30s)', 'Platform optimization', '2 A/B variations', 'Basic analytics setup', '2 revisions', '5-7 day delivery'] },
+            { name: 'Ad Campaign', price: '$799', period: '/campaign', features: ['3 video ads', 'Multi-platform formats', '3 A/B variations', 'Advanced analytics', 'Unlimited revisions', '7-10 day delivery', 'Performance optimization'], popular: true },
+            { name: 'Enterprise', price: '$1,499', period: '/campaign', features: ['5 video ads', 'Full funnel strategy', 'Unlimited variations', 'Advanced analytics & reporting', 'Unlimited revisions', '10-14 day delivery', 'Dedicated media buyer', 'Monthly optimization'] },
         ],
         faqs: [
             { question: 'Which platforms do you create ads for?', answer: 'Facebook, Instagram, YouTube, TikTok, LinkedIn, Twitter, and display networks. Each gets platform-specific optimization.' },
@@ -458,11 +458,11 @@ const servicesData: Record<string, any> = {
         pricing: [
             {
                 name: 'Starter',
-                price: '$599',
-                period: '/campaign',
+                price: '$299',
+                period: '/video',
                 features: [
-                    '3 UGC videos',
-                    '3 different creators',
+                    '1 UGC video',
+                    '1 creator',
                     'Brief creation',
                     'Raw footage included',
                     'Standard usage rights',
@@ -471,11 +471,11 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Growth',
-                price: '$1,499',
+                price: '$599',
                 period: '/campaign',
                 features: [
-                    '8 UGC videos',
-                    '5 different creators',
+                    '3 UGC videos',
+                    '3 different creators',
                     'Strategic scripting',
                     'Edited versions for ads',
                     'Raw footage included',
@@ -486,11 +486,11 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Scale',
-                price: '$2,999',
+                price: '$999',
                 period: '/campaign',
                 features: [
-                    '20 UGC videos',
-                    '10 different creators',
+                    '5 UGC videos',
+                    '5 different creators',
                     'Full campaign strategy',
                     'Professional editing',
                     'Whitelisting available',
@@ -578,7 +578,7 @@ const servicesData: Record<string, any> = {
         pricing: [
             {
                 name: 'Single',
-                price: '$45',
+                price: '$299',
                 period: '/thumbnail',
                 features: [
                     '1 custom thumbnail',
@@ -589,11 +589,11 @@ const servicesData: Record<string, any> = {
                 ],
             },
             {
-                name: 'Pack of 10',
-                price: '$350',
+                name: 'Pack of 3',
+                price: '$599',
                 period: '/pack',
                 features: [
-                    '10 custom thumbnails',
+                    '3 custom thumbnails',
                     'Concept strategy',
                     'Unlimited revisions',
                     'Source files (PSD)',
@@ -604,10 +604,10 @@ const servicesData: Record<string, any> = {
             },
             {
                 name: 'Monthly',
-                price: '$899',
+                price: '$999',
                 period: '/month',
                 features: [
-                    'Up to 30 thumbnails',
+                    'Up to 5 thumbnails',
                     'A/B test variations',
                     'Thumbnail strategy audit',
                     'Dedicated designer',

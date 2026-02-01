@@ -13,9 +13,9 @@ const services = [
     },
     {
         icon: Package,
-        title: 'Product Videos',
+        title: 'Commercial Video',
         description: 'Showcase your products with stunning visuals that highlight features and drive conversions.',
-        href: '/services/product-videos',
+        href: '/services/commercial-video',
         gradient: 'from-orange-500 to-red-500',
     },
     {
