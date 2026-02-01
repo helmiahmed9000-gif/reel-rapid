@@ -94,6 +94,12 @@ export function Header() {
                         </div>
 
                         <Link
+                            href="/portfolio"
+                            className="text-white hover:text-primary transition-colors font-medium"
+                        >
+                            Portfolio
+                        </Link>
+                        <Link
                             href="/blog"
                             className="text-white hover:text-primary transition-colors font-medium"
                         >
@@ -160,6 +166,13 @@ export function Header() {
                                 ))}
                             </div>
 
+                            <Link
+                                href="/portfolio"
+                                className="text-white hover:text-primary transition-colors font-medium"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Portfolio
+                            </Link>
                             <Link
                                 href="/blog"
                                 className="text-white hover:text-primary transition-colors font-medium"
