@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Explore our portfolio of viral short videos, product videos, explainer videos, and more. See the results we deliver for our clients.',
 };
 
-// Portfolio items - videos will be added later, using placeholders for now
+// Portfolio items - updated with YouTube Shorts videos
 const portfolioItems = [
     {
         id: 1,
@@ -19,7 +19,8 @@ const portfolioItems = [
         category: 'Commercial Video',
         views: '2.4M',
         likes: '156K',
-        thumbnail: 'https://images.unsplash.com/photo-1556228552-523cd169eb90?w=720&q=80',
+        thumbnail: null,
+        videoUrl: 'https://youtube.com/shorts/-77EvBMcTKI?si=1_s4WiYAlFekJoP1',
         gradient: 'from-pink-500 to-rose-500',
     },
     {
@@ -28,7 +29,8 @@ const portfolioItems = [
         category: 'Viral Short Videos',
         views: '5.1M',
         likes: '342K',
-        thumbnail: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=720&q=80',
+        thumbnail: null,
+        videoUrl: 'https://youtube.com/shorts/au_ys7A52lA?si=DGRzx8QZsR7UuJUW',
         gradient: 'from-orange-400 to-orange-600',
     },
     {
@@ -37,7 +39,8 @@ const portfolioItems = [
         category: 'Explainer Videos',
         views: '890K',
         likes: '67K',
-        thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=720&q=80',
+        thumbnail: null,
+        videoUrl: 'https://youtube.com/shorts/UmaK2Mj1arA?si=lDt3DJX4yvcDBZvn',
         gradient: 'from-blue-500 to-cyan-500',
     },
     {
@@ -46,7 +49,8 @@ const portfolioItems = [
         category: 'Commercial Video',
         views: '3.2M',
         likes: '198K',
-        thumbnail: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=720&h=1280&fit=crop',
+        thumbnail: null,
+        videoUrl: 'https://youtube.com/shorts/ByIroB2Ekso?si=J2vdROJWg-7-Xds8',
         gradient: 'from-purple-500 to-pink-500',
     },
     {
@@ -55,7 +59,8 @@ const portfolioItems = [
         category: 'Video Ads',
         views: '4.7M',
         likes: '285K',
-        thumbnail: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=720&h=1280&fit=crop',
+        thumbnail: null,
+        videoUrl: 'https://youtube.com/shorts/nW5FPtHXHXk?si=jkTunPj2adPP129N',
         gradient: 'from-green-500 to-emerald-500',
     },
     {
@@ -185,8 +190,8 @@ export default function PortfolioPage() {
                             <button
                                 key={category}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${index === 0
-                                        ? 'bg-primary text-white shadow-lg'
-                                        : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
                                     }`}
                             >
                                 {category}
